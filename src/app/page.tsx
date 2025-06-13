@@ -8,13 +8,11 @@ import {
   MapPin,
   Clock,
   Star,
-  Calculator,
   Home,
   Search,
   Key,
   Award,
   CheckCircle,
-  X,
   Menu,
   ExternalLink,
   TrendingUp,
@@ -23,30 +21,8 @@ import {
 
 export default function RealEstateWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [calculatorOpen, setCalculatorOpen] = useState(false);
-  const [calculatorType, setCalculatorType] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [imageError, setImageError] = useState(false);
-
-  // Credit calculator state
-  const [creditData, setCreditData] = useState({
-    price: 500000,
-    downPayment: 20,
-    years: 25,
-  });
-
-  // Valuation calculator state
-  const [valuationData, setValuationData] = useState({
-    area: 75,
-    district: 6500,
-    condition: 1.0,
-  });
-
-  // Costs calculator state
-  const [costsData, setCostsData] = useState({
-    propertyValue: 400000,
-    transactionType: "buy",
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,65 +35,6 @@ export default function RealEstateWebsite() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
-  };
-
-  const openCalculator = (type: string) => {
-    setCalculatorType(type);
-    setCalculatorOpen(true);
-  };
-
-  const calculateCredit = () => {
-    const loanAmount = creditData.price * (1 - creditData.downPayment / 100);
-    const monthlyRate = 0.06 / 12;
-    const months = creditData.years * 12;
-    const monthlyPayment =
-      (loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, months))) /
-      (Math.pow(1 + monthlyRate, months) - 1);
-
-    return {
-      loanAmount: Math.round(loanAmount),
-      monthlyPayment: Math.round(monthlyPayment),
-    };
-  };
-
-  const calculateValuation = () => {
-    const baseValue = valuationData.area * valuationData.district;
-    const finalValue = baseValue * valuationData.condition;
-
-    return {
-      value: Math.round(finalValue),
-      pricePerSqm: Math.round(finalValue / valuationData.area),
-    };
-  };
-
-  const calculateCosts = () => {
-    let costs: Record<string, number> = {};
-
-    if (costsData.transactionType === "buy") {
-      costs = {
-        "Podatek PCC (2%)": Math.round(costsData.propertyValue * 0.02),
-        Notariusz: 2500,
-        "Sąd wieczystoksięgowy": 200,
-        "Pośrednik (3%)": Math.round(costsData.propertyValue * 0.03),
-        "Inne koszty": 1000,
-      };
-    } else {
-      costs = {
-        "Pośrednik (3%)": Math.round(costsData.propertyValue * 0.03),
-        Notariusz: 1500,
-        "Podatek PIT (19%)":
-          costsData.propertyValue > 250000
-            ? Math.round((costsData.propertyValue - 250000) * 0.19)
-            : 0,
-        "Inne koszty": 500,
-      };
-    }
-
-    const totalCosts = Object.values(costs).reduce(
-      (sum, cost) => sum + cost,
-      0
-    );
-    return { costs, totalCosts };
   };
 
   const stats = [
@@ -171,55 +88,81 @@ export default function RealEstateWebsite() {
 
   const testimonials = [
     {
-      text: "Pan Marcin sprzedał nasze mieszkanie w rekordowym czasie za cenę wyższą niż oczekiwaliśmy. Profesjonalizm na najwyższym poziomie!",
+      text: "Pan Sylwester sprzedał nasze mieszkanie w rekordowym czasie za cenę wyższą niż oczekiwaliśmy. Profesjonalizm na najwyższym poziomie!",
       author: "Małgorzata i Piotr W.",
       location: "Kielce, Czarnów",
       rating: 5,
     },
     {
-      text: "Dzięki panu Marcinowi znaleźliśmy dom marzeń. Załatwił wszystko od A do Z, negocjacje, kredyt, formalności. Polecamy!",
+      text: "Dzięki panu Sylwesterowi znaleźliśmy dom marzeń. Załatwił wszystko od A do Z, negocjacje, kredyt, formalności. Polecamy!",
       author: "Rodzina Nowak",
       location: "Kielce, Barwinek",
       rating: 5,
     },
     {
-      text: "Bardzo profesjonalne podejście do klienta. Pan Marcin jest zawsze dostępny i szybko odpowiada. Mieszkanie wynajęte w tydzień!",
+      text: "Bardzo profesjonalne podejście do klienta. Pan Sylwester jest zawsze dostępny i szybko odpowiada. Mieszkanie wynajęte w tydzień!",
       author: "Anna K.",
       location: "Właścicielka, Kielce",
       rating: 5,
     },
   ];
 
-  const tools = [
+  const achievements = [
     {
-      title: "Kalkulator Kredytu",
-      description: "Sprawdź ile możesz pożyczyć i jakie będą raty",
-      icon: Calculator,
-      color: "from-slate-50 to-slate-100",
-      iconBg: "bg-slate-700",
-      type: "credit",
+      title: "Licencja Pośrednika Nieruchomości",
+      description: "PFRN nr 26546 - oficjalnie licencjonowany pośrednik",
+      image:
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+      year: "2016",
+      authority: "Polska Federacja Rynku Nieruchomości",
     },
     {
-      title: "Wycena Nieruchomości",
-      description: "Wstępna wycena na podstawie lokalizacji i parametrów",
-      icon: Home,
-      color: "from-blue-50 to-blue-100",
-      iconBg: "bg-blue-700",
-      type: "valuation",
+      title: "Pośrednik Roku 2023",
+      description: "Wyróżnienie za najlepsze wyniki sprzedaży w Kielcach",
+      image:
+        "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=300&fit=crop",
+      year: "2023",
+      authority: "Portal Nieruchomości.pl",
     },
     {
-      title: "Koszty Transakcji",
-      description: "Sprawdź wszystkie koszty kupna/sprzedaży",
-      icon: TrendingUp,
-      color: "from-emerald-50 to-emerald-100",
-      iconBg: "bg-emerald-700",
-      type: "costs",
+      title: "Certyfikat Wyceny Nieruchomości",
+      description:
+        "Specjalizacja w profesjonalnej wycenie wszystkich typów nieruchomości",
+      image:
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=300&fit=crop",
+      year: "2022",
+      authority: "Polska Izba Rzeczoznawców Majątkowych",
+    },
+    {
+      title: "Top Agent 2022",
+      description:
+        "Miejsce w TOP 10 najlepszych agentów w województwie świętokrzyskim",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+      year: "2022",
+      authority: "RynekPierwotny.pl",
+    },
+    {
+      title: "Certyfikat Zarządzania Najmem",
+      description:
+        "Uprawnienia do profesjonalnego zarządzania nieruchomościami na wynajem",
+      image:
+        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
+      year: "2021",
+      authority: "Stowarzyszenie Zarządców Nieruchomości",
+    },
+    {
+      title: "Wyróżnienie za Etykę w Biznesie",
+      description: "Nagroda za uczciwe i transparentne prowadzenie transakcji",
+      image:
+        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop",
+      year: "2021",
+      authority: "Izba Gospodarcza Kielce",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
@@ -317,7 +260,6 @@ export default function RealEstateWebsite() {
         )}
       </nav>
 
-      {/* Hero Section */}
       <section
         id="home"
         className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 relative"
@@ -344,7 +286,7 @@ export default function RealEstateWebsite() {
                 <div className="flex items-center space-x-4 text-white bg-white/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 flex-shrink-0" />
                   <span className="text-base sm:text-lg font-semibold">
-                    +48 600 123 456
+                    +48 786 221 221
                   </span>
                 </div>
               </div>
@@ -354,8 +296,8 @@ export default function RealEstateWebsite() {
                 <div className="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full shadow-2xl overflow-hidden floating">
                   {!imageError ? (
                     <Image
-                      src="/zdjecie-profilowe.jpg"
-                      alt="Twoje zdjęcie profilowe"
+                      src="zdjecie-profilowe.jpg"
+                      alt="Sylwester Pawlik - Pośrednik nieruchomości"
                       width={320}
                       height={320}
                       className="w-full h-full object-cover"
@@ -365,7 +307,7 @@ export default function RealEstateWebsite() {
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-slate-800 to-blue-800 flex items-center justify-center">
                       <span className="text-white text-4xl sm:text-6xl font-bold">
-                        ME
+                        SP
                       </span>
                     </div>
                   )}
@@ -415,10 +357,10 @@ export default function RealEstateWebsite() {
               </h2>
               <div className="space-y-4 sm:space-y-6 text-slate-700">
                 <p className="text-base sm:text-lg leading-relaxed">
-                  Jestem Sylwester Pawlik, licencjonowany pośrednik
-                  nieruchomości z ponad 8-letnim doświadczeniem na rynku
-                  kieleckim. Specjalizuję się w sprzedaży, kupnie i wynajmie
-                  nieruchomości w Kielcach i okolicach.
+                  Nazywam się Sylwester Pawlik, jestem licencjonowanym
+                  pośrednikiem nieruchomości z ponad 8-letnim doświadczeniem na
+                  rynku świętokrzyskim. Specjalizuję się w sprzedaży, kupnie i
+                  wynajmie nieruchomości w Kielcach i okolicach.
                 </p>
                 <p className="text-base sm:text-base leading-relaxed">
                   Moja pasja to pomaganie ludziom w znalezieniu idealnego domu
@@ -428,10 +370,10 @@ export default function RealEstateWebsite() {
                 </p>
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
                   {[
-                    { number: "180+", label: "Transakcji sprzedaży" },
-                    { number: "120+", label: "Transakcji kupna" },
-                    { number: "80M+", label: "zł wartość transakcji" },
-                    { number: "15", label: "Dzielnic Kielc" },
+                    { number: "300+", label: "Transakcji sprzedaży" },
+                    { number: "200+", label: "Transakcji kupna" },
+                    { number: "8+", label: "Lat doświadczenia" },
+                    { number: "500+", label: "Zadowolonych klientów" },
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -455,7 +397,7 @@ export default function RealEstateWebsite() {
                 </h3>
                 <div className="space-y-2 sm:space-y-3">
                   {[
-                    "Licencja pośrednika nieruchomości nr 15342",
+                    "Licencja pośrednika nieruchomości nr 26546",
                     "Członek Polskiej Federacji Rynku Nieruchomości",
                     "Certyfikat zarządzania nieruchomościami",
                     "Szkolenie z wyceny nieruchomości",
@@ -600,42 +542,83 @@ export default function RealEstateWebsite() {
         </div>
       </section>
 
-      {/* Tools Section */}
+      {/* Achievements Section */}
       <section className="bg-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
-              Narzędzia dla Klientów
+              Moje Sukcesy i Osiągnięcia
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-              Przydatne kalkulatory i narzędzia do wyceny nieruchomości
+              Certyfikaty, licencje i wyróżnienia potwierdzające mój
+              profesjonalizm
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {tools.map((tool, index) => (
+            {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${tool.color} p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200`}
+                className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 group"
               >
-                <div
-                  className={`w-10 h-10 sm:w-12 sm:h-12 ${tool.iconBg} rounded-lg flex items-center justify-center mb-3 sm:mb-4`}
-                >
-                  <tool.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="relative mb-4 sm:mb-6">
+                  <div className="aspect-[4/3] bg-white rounded-lg overflow-hidden shadow-md">
+                    <Image
+                      src={achievement.image}
+                      alt={achievement.title}
+                      width={300}
+                      height={225}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                    {achievement.year}
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">
-                  {tool.title}
+
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                  {achievement.title}
                 </h3>
-                <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                  {tool.description}
+                <p className="text-sm sm:text-base text-slate-600 mb-3 leading-relaxed">
+                  {achievement.description}
                 </p>
-                <button
-                  onClick={() => openCalculator(tool.type)}
-                  className="text-blue-700 hover:text-blue-800 font-semibold text-sm sm:text-base"
-                >
-                  Użyj kalkulatora →
-                </button>
+                <div className="text-xs sm:text-sm text-slate-500 font-medium">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-3 h-3 text-emerald-600 mr-2 flex-shrink-0" />
+                    {achievement.authority}
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 sm:mt-16 bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-center text-white">
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                Doświadczenie i certyfikaty na które możesz liczyć
+              </h3>
+              <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-blue-100">
+                Każdy certyfikat to gwarancja profesjonalnej obsługi i
+                najwyższej jakości usług
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                  <div className="text-2xl font-bold">8+</div>
+                  <div className="text-sm text-blue-100">lat licencji</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                  <div className="text-2xl font-bold">6</div>
+                  <div className="text-sm text-blue-100">certyfikatów</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                  <div className="text-2xl font-bold">4</div>
+                  <div className="text-sm text-blue-100">wyróżnień</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                  <div className="text-2xl font-bold">100%</div>
+                  <div className="text-sm text-blue-100">zadowolenia</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -658,16 +641,16 @@ export default function RealEstateWebsite() {
 
               <div className="space-y-4 sm:space-y-6">
                 {[
-                  { icon: Phone, title: "Telefon", value: "+48 600 123 456" },
+                  { icon: Phone, title: "Telefon", value: "+48 786 221 221" },
                   {
                     icon: Mail,
                     title: "Email",
-                    value: "marcin@nieruchomosci-kielce.pl",
+                    value: "biuro@ckdom.pl",
                   },
                   {
                     icon: MapPin,
                     title: "Biuro",
-                    value: "ul. Sienkiewicza 15/3\n25-001 Kielce",
+                    value: "Aleja Solidarności 5\n25-001 Kielce",
                   },
                   {
                     icon: Clock,
@@ -695,72 +678,87 @@ export default function RealEstateWebsite() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 text-slate-900">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
-                Wyślij wiadomość
-              </h3>
-              <div className="space-y-4 sm:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Imię
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
+            <div className="flex justify-center">
+              <div className="relative max-w-md w-full">
+                <div className="bg-white rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                  {!imageError ? (
+                    <Image
+                      src="wizytowka.jpg"
+                      alt="Wizytówka Sylwester Pawlik - CKDom.pl"
+                      width={400}
+                      height={600}
+                      className="w-full h-auto object-cover"
+                      onError={() => setImageError(true)}
                     />
+                  ) : (
+                    <div className="bg-gradient-to-br from-red-600 to-red-700 text-white p-6 sm:p-8">
+                      <div className="text-center mb-6">
+                        <div className="text-2xl sm:text-3xl font-bold mb-2">
+                          CK DOM.PL
+                        </div>
+                        <div className="text-sm sm:text-base opacity-90">
+                          BIURO NIERUCHOMOŚCI
+                        </div>
+                      </div>
+
+                      <div className="bg-white text-slate-800 p-4 rounded-lg mb-4">
+                        <div className="text-center mb-3">
+                          <div className="text-xs font-semibold text-red-600 mb-1">
+                            LICENCJONOWANY
+                          </div>
+                          <div className="text-xs font-semibold text-red-600">
+                            POŚREDNIK NIERUCHOMOŚCI
+                          </div>
+                        </div>
+
+                        <div
+                          className="text-2xl font-bold text-center mb-4 text-slate-800"
+                          style={{ fontFamily: "cursive" }}
+                        >
+                          Sylwester Pawlik
+                        </div>
+
+                        <div className="space-y-2 text-sm">
+                          <div>
+                            <strong>KIELCE</strong>
+                          </div>
+                          <div>ALEJA SOLIDARNOŚCI 5</div>
+                          <div>
+                            <strong>TEL. 786-221-221</strong>
+                          </div>
+                          <div>BIURO@CKDOM.PL</div>
+                          <div className="text-xs">NR LICENCJI PFRN 26546</div>
+                        </div>
+                      </div>
+
+                      <div className="text-center">
+                        <div className="text-lg font-bold">WWW.CKDOM.PL</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-slate-300 text-sm sm:text-base mb-4">
+                    Zapisz moje dane kontaktowe lub zrób zdjęcie wizytówki
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a
+                      href="tel:+48786221221"
+                      className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-300 text-sm sm:text-base inline-flex items-center justify-center"
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Zadzwoń teraz
+                    </a>
+                    <a
+                      href="mailto:biuro@ckdom.pl"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-300 text-sm sm:text-base inline-flex items-center justify-center"
+                    >
+                      <Mail className="w-4 h-4 mr-2" />
+                      Wyślij email
+                    </a>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Telefon
-                    </label>
-                    <input
-                      type="tel"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                    />
-                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Rodzaj usługi
-                  </label>
-                  <select className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base">
-                    <option>Sprzedaż nieruchomości</option>
-                    <option>Kupno nieruchomości</option>
-                    <option>Wynajem</option>
-                    <option>Wycena</option>
-                    <option>Inne</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Wiadomość
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                    placeholder="Opisz czym mogę Ci pomóc..."
-                  ></textarea>
-                </div>
-                <button
-                  onClick={() =>
-                    alert(
-                      "Dziękuję za wiadomość! Skontaktuję się z Tobą w ciągu 24 godzin."
-                    )
-                  }
-                  className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Wyślij wiadomość
-                </button>
               </div>
             </div>
           </div>
@@ -780,7 +778,7 @@ export default function RealEstateWebsite() {
                 doświadczenia w branży nieruchomości.
               </p>
               <div className="text-xs sm:text-sm text-slate-400">
-                <p>Licencja nr 15342</p>
+                <p>Licencja nr 26546</p>
                 <p>NIP: 123-456-78-90</p>
               </div>
             </div>
@@ -835,235 +833,6 @@ export default function RealEstateWebsite() {
           </div>
         </div>
       </footer>
-
-      {/* Calculator Modal */}
-      {calculatorOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-4 sm:p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg sm:text-xl font-bold">
-                {calculatorType === "credit" &&
-                  "Kalkulator Kredytu Hipotecznego"}
-                {calculatorType === "valuation" &&
-                  "Wstępna Wycena Nieruchomości"}
-                {calculatorType === "costs" && "Kalkulator Kosztów Transakcji"}
-              </h3>
-              <button
-                onClick={() => setCalculatorOpen(false)}
-                className="text-slate-500 hover:text-slate-700"
-              >
-                <X className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-            </div>
-
-            <div className="space-y-4">
-              {calculatorType === "credit" && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Cena nieruchomości (zł)
-                    </label>
-                    <input
-                      type="number"
-                      value={creditData.price}
-                      onChange={(e) =>
-                        setCreditData({
-                          ...creditData,
-                          price: parseInt(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                      placeholder="500000"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Wkład własny (%)
-                    </label>
-                    <input
-                      type="number"
-                      value={creditData.downPayment}
-                      onChange={(e) =>
-                        setCreditData({
-                          ...creditData,
-                          downPayment: parseInt(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                      placeholder="20"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Okres kredytu (lata)
-                    </label>
-                    <input
-                      type="number"
-                      value={creditData.years}
-                      onChange={(e) =>
-                        setCreditData({
-                          ...creditData,
-                          years: parseInt(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                      placeholder="25"
-                    />
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                    <div className="text-sm sm:text-base">
-                      Kwota kredytu:{" "}
-                      <strong className="text-slate-800">
-                        {calculateCredit().loanAmount.toLocaleString()} zł
-                      </strong>
-                    </div>
-                    <div className="text-sm sm:text-base">
-                      Miesięczna rata:{" "}
-                      <strong className="text-slate-800">
-                        {calculateCredit().monthlyPayment.toLocaleString()} zł
-                      </strong>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {calculatorType === "valuation" && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Powierzchnia (m²)
-                    </label>
-                    <input
-                      type="number"
-                      value={valuationData.area}
-                      onChange={(e) =>
-                        setValuationData({
-                          ...valuationData,
-                          area: parseInt(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                      placeholder="75"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Dzielnica
-                    </label>
-                    <select
-                      value={valuationData.district}
-                      onChange={(e) =>
-                        setValuationData({
-                          ...valuationData,
-                          district: parseInt(e.target.value),
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                    >
-                      <option value={6500}>Centrum - 6500 zł/m²</option>
-                      <option value={5800}>Czarnów - 5800 zł/m²</option>
-                      <option value={5200}>Barwinek - 5200 zł/m²</option>
-                      <option value={4800}>Szydłówek - 4800 zł/m²</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Stan
-                    </label>
-                    <select
-                      value={valuationData.condition}
-                      onChange={(e) =>
-                        setValuationData({
-                          ...valuationData,
-                          condition: parseFloat(e.target.value),
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                    >
-                      <option value={1.1}>Do zamieszkania - +10%</option>
-                      <option value={1.0}>Dobry - bez zmian</option>
-                      <option value={0.9}>Do remontu - -10%</option>
-                    </select>
-                  </div>
-                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                    <div className="text-sm sm:text-base">
-                      Szacowana wartość:
-                    </div>
-                    <div className="text-xl sm:text-2xl font-bold text-blue-700">
-                      {calculateValuation().value.toLocaleString()} zł
-                    </div>
-                    <div className="text-xs sm:text-sm text-slate-600">
-                      {calculateValuation().pricePerSqm.toLocaleString()} zł/m²
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {calculatorType === "costs" && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Wartość nieruchomości (zł)
-                    </label>
-                    <input
-                      type="number"
-                      value={costsData.propertyValue}
-                      onChange={(e) =>
-                        setCostsData({
-                          ...costsData,
-                          propertyValue: parseInt(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                      placeholder="400000"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Typ transakcji
-                    </label>
-                    <select
-                      value={costsData.transactionType}
-                      onChange={(e) =>
-                        setCostsData({
-                          ...costsData,
-                          transactionType: e.target.value,
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
-                    >
-                      <option value="buy">Kupno</option>
-                      <option value="sell">Sprzedaż</option>
-                    </select>
-                  </div>
-                  <div className="bg-emerald-50 p-4 rounded-lg space-y-2 border border-emerald-200">
-                    {Object.entries(calculateCosts().costs).map(
-                      ([name, cost]) => (
-                        <div
-                          key={name}
-                          className="flex justify-between text-sm sm:text-base"
-                        >
-                          <span className="text-slate-700">{name}:</span>
-                          <strong className="text-slate-800">
-                            {cost.toLocaleString()} zł
-                          </strong>
-                        </div>
-                      )
-                    )}
-                    <hr className="my-2 border-emerald-200" />
-                    <div className="flex justify-between text-base sm:text-lg">
-                      <span className="text-slate-700">RAZEM:</span>
-                      <strong className="text-emerald-700">
-                        {calculateCosts().totalCosts.toLocaleString()} zł
-                      </strong>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
