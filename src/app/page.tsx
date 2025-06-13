@@ -39,9 +39,9 @@ export default function RealEstateWebsite() {
 
   const stats = [
     { number: "8+", label: "Lat doświadczenia", icon: Award },
-    { number: "200+", label: "Zadowolonych klientów", icon: Users },
-    { number: "45", label: "Średnio dni do sprzedaży", icon: TrendingUp },
-    { number: "98%", label: "Zadowolonych klientów", icon: Star },
+    { number: "300+", label: "Zadowolonych klientów", icon: Users },
+    { number: "14", label: "Średnio dni do sprzedaży", icon: TrendingUp },
+    { number: "100%", label: "Profesjonalizmu", icon: Star },
   ];
 
   const services = [
@@ -56,7 +56,7 @@ export default function RealEstateWebsite() {
         "Marketing w 15+ portalach",
         "Prowizja tylko po sprzedaży",
       ],
-      highlight: "Średni czas sprzedaży: 45 dni (vs 90 dni rynek)",
+      highlight: "Średni czas sprzedaży: 14 dni (vs 90 dni rynek)",
     },
     {
       title: "Kupno Nieruchomości",
@@ -82,7 +82,7 @@ export default function RealEstateWebsite() {
         "Zarządzanie najmem",
         "Obsługa reklamacji",
       ],
-      highlight: "Rentowność: 5-8% rocznie przy pełnej obsłudze",
+      highlight: "Wygoda: zero stresu, więcej czasu, stały dochód",
     },
   ];
 
@@ -90,19 +90,19 @@ export default function RealEstateWebsite() {
     {
       text: "Pan Sylwester sprzedał nasze mieszkanie w rekordowym czasie za cenę wyższą niż oczekiwaliśmy. Profesjonalizm na najwyższym poziomie!",
       author: "Małgorzata i Piotr W.",
-      location: "Kielce, Czarnów",
+      location: "Kielce",
       rating: 5,
     },
     {
-      text: "Dzięki panu Sylwesterowi znaleźliśmy dom marzeń. Załatwił wszystko od A do Z, negocjacje, kredyt, formalności. Polecamy!",
+      text: "Dzięki panu Sylwestrowi znaleźliśmy dom marzeń. Załatwił wszystko od A do Z, negocjacje, kredyt, formalności. Polecamy!",
       author: "Rodzina Nowak",
-      location: "Kielce, Barwinek",
+      location: "Nowiny",
       rating: 5,
     },
     {
       text: "Bardzo profesjonalne podejście do klienta. Pan Sylwester jest zawsze dostępny i szybko odpowiada. Mieszkanie wynajęte w tydzień!",
       author: "Anna K.",
-      location: "Właścicielka, Kielce",
+      location: "Kielce",
       rating: 5,
     },
   ];
@@ -113,47 +113,44 @@ export default function RealEstateWebsite() {
       description: "PFRN nr 26546 - oficjalnie licencjonowany pośrednik",
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
-      year: "2016",
+      year: "2021",
       authority: "Polska Federacja Rynku Nieruchomości",
     },
     {
-      title: "Pośrednik Roku 2023",
-      description: "Wyróżnienie za najlepsze wyniki sprzedaży w Kielcach",
+      title: "Tu cos mozna wstawic",
+      description: "Ale nie wiem co",
       image:
         "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=300&fit=crop",
       year: "2023",
       authority: "Portal Nieruchomości.pl",
     },
     {
-      title: "Certyfikat Wyceny Nieruchomości",
+      title: "Lider Jakości PRO",
       description:
-        "Specjalizacja w profesjonalnej wycenie wszystkich typów nieruchomości",
-      image:
-        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=300&fit=crop",
-      year: "2022",
-      authority: "Polska Izba Rzeczoznawców Majątkowych",
+        "Odznaka Lider Jakości PRO to wyróżnienie przyznawane tym biurom, których jakość ogłoszeń jest na najwyższym poziomie.",
+      image: "lider-jakosci.jpg",
+      year: "2024",
+      authority: "Otodom.pl",
     },
     {
-      title: "Top Agent 2022",
-      description:
-        "Miejsce w TOP 10 najlepszych agentów w województwie świętokrzyskim",
+      title: "Tu cos mozna wstawic",
+      description: "Ale nie wiem co",
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
       year: "2022",
       authority: "RynekPierwotny.pl",
     },
     {
-      title: "Certyfikat Zarządzania Najmem",
-      description:
-        "Uprawnienia do profesjonalnego zarządzania nieruchomościami na wynajem",
+      title: "Tu cos mozna wstawic",
+      description: "Ale nie wiem co",
       image:
         "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
       year: "2021",
       authority: "Stowarzyszenie Zarządców Nieruchomości",
     },
     {
-      title: "Wyróżnienie za Etykę w Biznesie",
-      description: "Nagroda za uczciwe i transparentne prowadzenie transakcji",
+      title: "Tu cos mozna wstawic",
+      description: "Ale nie wiem co",
       image:
         "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop",
       year: "2021",
@@ -163,6 +160,7 @@ export default function RealEstateWebsite() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
@@ -171,14 +169,21 @@ export default function RealEstateWebsite() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-22">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-slate-800">
-                Sylwester Pawlik
-              </span>
-              <span className="ml-2 text-slate-600 font-medium">
-                Nieruchomości
-              </span>
+              <button
+                onClick={() => scrollToSection("home")}
+                className="flex items-center hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="logo.png"
+                  alt="Sylwester Pawlik Nieruchomości - Logo"
+                  width={400}
+                  height={200}
+                  className="h-16 sm:h-20 w-auto"
+                  priority
+                />
+              </button>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <button
@@ -260,6 +265,7 @@ export default function RealEstateWebsite() {
         )}
       </nav>
 
+      {/* Hero Section */}
       <section
         id="home"
         className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 relative"
@@ -273,8 +279,8 @@ export default function RealEstateWebsite() {
                 <span className="text-blue-400">Kielcach</span>
               </h1>
               <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-slate-200 leading-relaxed">
-                Ponad 8 lat doświadczenia • 200+ zadowolonych klientów • Średni
-                czas sprzedaży: 45 dni
+                Ponad 8 lat doświadczenia • 300+ zadowolonych klientów • Średni
+                czas sprzedaży: 14 dni
               </p>
               <div className="flex flex-col gap-4">
                 <button
@@ -283,7 +289,7 @@ export default function RealEstateWebsite() {
                 >
                   Umów bezpłatną konsultację
                 </button>
-                <div className="flex items-center space-x-4 text-white bg-white/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg">
+                <div className="flex items-center justify-center space-x-4 text-white bg-white/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 flex-shrink-0" />
                   <span className="text-base sm:text-lg font-semibold">
                     +48 786 221 221
@@ -356,24 +362,45 @@ export default function RealEstateWebsite() {
                 Poznaj mnie bliżej
               </h2>
               <div className="space-y-4 sm:space-y-6 text-slate-700">
-                <p className="text-base sm:text-lg leading-relaxed">
+                <p className="text-base sm:text-lg leading-relaxed text-justify">
                   Nazywam się Sylwester Pawlik, jestem licencjonowanym
                   pośrednikiem nieruchomości z ponad 8-letnim doświadczeniem na
-                  rynku świętokrzyskim. Specjalizuję się w sprzedaży, kupnie i
-                  wynajmie nieruchomości w Kielcach i okolicach.
+                  rynku kieleckim. Specjalizuję się w sprzedaży, kupnie i
+                  wynajmie nieruchomości w Kielcach i okolicach. Jednym z moich
+                  największych atutów jest bardzo wysoka skuteczność, będąca
+                  efektem połączenia dwudziestoletniego doświadczenia w
+                  bezpośrednich kontaktach z klientami zdobytego w różnych
+                  branżach oraz rozległej wiedzy na temat lokalnego rynku
+                  nieruchomości. Od 2019 w branży nieruchomosci działający na
+                  terenie Kielc i okolic.{" "}
                 </p>
+                <p className="text-base sm:text-lg leading-relaxed text-justify">
+                  Członek Świętokrzyskiego Stowarzyszenia Pośredników w Obrocie
+                  Nieruchomości. Jestem rekomendowanym fotografem wirtualnych
+                  spacerów. Ponad 22 lat zdobywam doświadczenie w handlu i
+                  obsłudze Klienta. Mam ponad 8 lat doświadczenia w branży
+                  pośrednictwa w obrocie nieruchomościami. Specjalizuje się w
+                  szybkiej sprzedaży mieszkań, domów, działek, dzięki trafnemu
+                  nowoczesnemu marketingowi i współpracy z większością
+                  Pośredników nieruchomości w kraju. Sprzedaż nieruchomości to
+                  proces wymagający wielu czynności, umiejętności i czasu. W
+                  swojej pracy dążę do maksymalnego odciążenia moich klientów,
+                  gwarantując pewność i spokój na każdym kroku.
+                </p>
+
                 <p className="text-base sm:text-base leading-relaxed">
-                  Moja pasja to pomaganie ludziom w znalezieniu idealnego domu
-                  lub w sprzedaży nieruchomości za najlepszą cenę. Każdego
-                  klienta traktuję indywidualnie, dostosowując strategię do jego
+                  Wolę sprzedawać nieruchomości niż je kolekcjonować — dlatego
+                  posiadam tak mało ofert. Uważam, że takie działania wykonują
+                  najskuteczniejsi agenci nieruchomości. Każdego klienta
+                  traktuję indywidualnie, dostosowując strategię do jego
                   unikalnych potrzeb.
                 </p>
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
                   {[
-                    { number: "300+", label: "Transakcji sprzedaży" },
-                    { number: "200+", label: "Transakcji kupna" },
+                    { number: "180+", label: "Transakcji sprzedaży" },
+                    { number: "120+", label: "Transakcji kupna" },
                     { number: "8+", label: "Lat doświadczenia" },
-                    { number: "500+", label: "Zadowolonych klientów" },
+                    { number: "300+", label: "Zadowolonych klientów" },
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -391,16 +418,65 @@ export default function RealEstateWebsite() {
               </div>
             </div>
             <div className="space-y-4 sm:space-y-6">
+              {/* Główny certyfikat - licencja */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative bg-white p-6 rounded-xl shadow-xl border border-slate-200">
+                  <div className="text-center mb-4">
+                    <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full mb-3">
+                      <Award className="w-4 h-4 mr-1" />
+                      Oficjalna Licencja
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                      Licencja Pośrednika Nieruchomości
+                    </h3>
+                  </div>
+
+                  <div className="flex justify-center mb-4">
+                    <div className="relative max-w-sm w-full">
+                      <Image
+                        src="licencja.jpg"
+                        alt="Licencja PFRN nr 26546 - Sylwester Pawlik"
+                        width={300}
+                        height={400}
+                        className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      />
+                      <div className="absolute top-3 right-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">
+                        2021
+                      </div>
+                      <div className="absolute bottom-3 left-3 right-3 bg-black/80 text-white p-2 rounded text-center">
+                        <div className="text-xs font-semibold">
+                          PFRN Nr 26546
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center space-y-2">
+                    <div className="flex items-center justify-center space-x-2">
+                      <CheckCircle className="w-5 h-5 text-emerald-600" />
+                      <span className="text-sm font-medium text-slate-700">
+                        Polska Federacja Rynku Nieruchomości
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500">
+                      Oficjalnie licencjonowany pośrednik nieruchomości
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pozostałe certyfikaty */}
               <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-slate-200">
                 <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-900">
-                  Moje Certyfikaty
+                  Kluczowe atuty
                 </h3>
                 <div className="space-y-2 sm:space-y-3">
                   {[
-                    "Licencja pośrednika nieruchomości nr 26546",
                     "Członek Polskiej Federacji Rynku Nieruchomości",
                     "Certyfikat zarządzania nieruchomościami",
                     "Szkolenie z wyceny nieruchomości",
+                    "Specjalista od wirtualnych spacerów",
                   ].map((cert, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
@@ -411,6 +487,7 @@ export default function RealEstateWebsite() {
                   ))}
                 </div>
               </div>
+
               <div className="bg-slate-800 text-white p-4 sm:p-6 rounded-lg">
                 <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
                   Moje motto
@@ -533,12 +610,7 @@ export default function RealEstateWebsite() {
             ))}
           </div>
 
-          <div className="text-center mt-8 sm:mt-12">
-            <button className="inline-flex items-center text-blue-700 hover:text-blue-800 font-semibold text-sm sm:text-base">
-              Zobacz wszystkie opinie w Google
-              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-            </button>
-          </div>
+          <div className="text-center mt-8 sm:mt-12"></div>
         </div>
       </section>
 
@@ -591,7 +663,7 @@ export default function RealEstateWebsite() {
             ))}
           </div>
 
-          <div className="mt-12 sm:mt-16 bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-center text-white">
+          <div className="mt-12 sm:mt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 rounded-2xl p-6 sm:p-8 text-center text-white">
             <div className="max-w-3xl mx-auto">
               <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
                 Doświadczenie i certyfikaty na które możesz liczyć
@@ -603,7 +675,7 @@ export default function RealEstateWebsite() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">8+</div>
-                  <div className="text-sm text-blue-100">lat licencji</div>
+                  <div className="text-sm text-blue-100">lat doświadczenia</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">6</div>
@@ -615,7 +687,7 @@ export default function RealEstateWebsite() {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">100%</div>
-                  <div className="text-sm text-blue-100">zadowolenia</div>
+                  <div className="text-sm text-blue-100">skuteczności</div>
                 </div>
               </div>
             </div>
@@ -740,7 +812,7 @@ export default function RealEstateWebsite() {
 
                 <div className="mt-6 text-center">
                   <p className="text-slate-300 text-sm sm:text-base mb-4">
-                    Zapisz moje dane kontaktowe lub zrób zdjęcie wizytówki
+                    Skontaktuj się już dziś!
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a
@@ -779,50 +851,85 @@ export default function RealEstateWebsite() {
               </p>
               <div className="text-xs sm:text-sm text-slate-400">
                 <p>Licencja nr 26546</p>
-                <p>NIP: 123-456-78-90</p>
               </div>
             </div>
             <div>
               <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-                Przydatne linki
+                Znajdziesz mnie na:
               </h3>
-              <div className="space-y-1 sm:space-y-2">
+              <div className="space-y-3">
                 <a
-                  href="#"
-                  className="block text-slate-300 hover:text-white transition-colors text-sm sm:text-base"
+                  href="https://www.facebook.com/biurokielce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors text-sm sm:text-base group"
                 >
-                  Polityka prywatności
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </div>
+                  <span>Facebook</span>
                 </a>
                 <a
-                  href="#"
-                  className="block text-slate-300 hover:text-white transition-colors text-sm sm:text-base"
+                  href="https://www.tiktok.com/@biurockdom?lang=pl-PL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors text-sm sm:text-base group"
                 >
-                  Regulamin
+                  <div className="w-8 h-8 bg-pink-600 rounded-lg flex items-center justify-center group-hover:bg-pink-500 transition-colors">
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43V7.56a8.16 8.16 0 004.77 1.52v-3.39a4.85 4.85 0 01-1.04 0z" />
+                    </svg>
+                  </div>
+                  <span>TikTok</span>
                 </a>
                 <a
-                  href="#"
-                  className="block text-slate-300 hover:text-white transition-colors text-sm sm:text-base"
+                  href="https://www.ckdom.pl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors text-sm sm:text-base group"
                 >
-                  Mapa strony
-                </a>
-                <a
-                  href="#"
-                  className="block text-slate-300 hover:text-white transition-colors text-sm sm:text-base"
-                >
-                  Blog
+                  <div className="w-8 h-8 bg-slate-600 rounded-lg flex items-center justify-center group-hover:bg-slate-500 transition-colors">
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                  <span>ckdom.pl</span>
                 </a>
               </div>
             </div>
             <div>
               <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-                Obsługiwane rejony
+                Biuro nieruchomości
               </h3>
-              <div className="text-slate-300 space-y-0.5 sm:space-y-1 text-sm sm:text-base">
-                <p>Kielce (wszystkie dzielnice)</p>
-                <p>Masłów, Chęciny</p>
-                <p>Cedzyna, Daleszyce</p>
-                <p>Morawica, Strawczyn</p>
-                <p>Sitkówka-Nowiny</p>
+              <div className="text-slate-300 space-y-3 text-sm sm:text-base">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Home className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">CKDom Kielce</div>
+                    <div className="text-slate-400 text-xs">Główne biuro</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Home className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">
+                      CKDom Staszów
+                    </div>
+                    <div className="text-slate-400 text-xs">Oddział</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
