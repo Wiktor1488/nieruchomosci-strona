@@ -107,55 +107,7 @@ export default function RealEstateWebsite() {
     },
   ];
 
-  const achievements = [
-    {
-      title: "Licencja Pośrednika Nieruchomości",
-      description: "PFRN nr 26546 - oficjalnie licencjonowany pośrednik",
-      image: "licencja.jpg",
-      year: "2021",
-      authority: "Polska Federacja Rynku Nieruchomości",
-    },
-    {
-      title: "Lider Nieruchomości Otodom 2020",
-      description:
-        "Wyróżnienie za najlepsze wyniki sprzedaży nieruchomości w województwie świętokrzyskim",
-      image: "top.jpg",
-      year: "2020",
-      authority: "Otodom.pl",
-    },
-    {
-      title: "Współpraca z mBank",
-      description:
-        "Partner w zakresie pośrednictwa kredytowego oferujący dostęp do konsultacji eksperta i mobilne spotkania w dogodnym czasie i miejscu",
-      image: "bank.jpg",
-      year: "2024",
-      authority: "mBank.pl",
-    },
-    {
-      title: "Certyfkat Partnera Gratka",
-      description:
-        "Prestiżowe wyróżnienie za zaangażowanie, skuteczność sprzedażową oraz utrzymywanie wysokich standardów w obsłudze klientów na rynku nieruchomości.",
-      image: "gratka2024.jpg",
-      year: "2024",
-      authority: "Gratka.pl",
-    },
-    {
-      title: "Certyfikat Partnera Morizon",
-      description:
-        "Wyróżnienie przyznane za profesjonalizm, skuteczność oraz najwyższe standardy obsługi klienta w zakresie pośrednictwa w obrocie nieruchomościami. Certyfikat potwierdza naszą silną pozycję na rynku oraz dbałość o transparentność i jakość świadczonych usług.",
-      image: "morizon2024.jpg",
-      year: "2024",
-      authority: "Morizon.pl",
-    },
-    {
-      title: "Lider Jakości PRO",
-      description:
-        "Wyróżnienie za uczciwe, rzetelne i transparentne prowadzenie transakcji na rynku nieruchomości",
-      image: "lider-jakosci.jpg",
-      year: "2024",
-      authority: "Otodom.pl",
-    },
-  ];
+  const achievements = [];
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
@@ -621,48 +573,66 @@ export default function RealEstateWebsite() {
               Moje Sukcesy i Osiągnięcia
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-              Certyfikaty, licencje i wyróżnienia potwierdzające mój
+              Wyróżnienia i opinie zadowolonych klientów potwierdzające mój
               profesjonalizm
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {achievements.map((achievement, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 group"
-              >
-                <div className="relative mb-4 sm:mb-6">
-                  <div className="aspect-[4/3] bg-white/0 rounded-lg overflow-hidden shadow-md">
-                    <Image
-                      src={achievement.image}
-                      alt={achievement.title}
-                      width={300}
-                      height={225}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
-                    {achievement.year}
-                  </div>
-                </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
-                  {achievement.title}
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 mb-3 leading-relaxed">
-                  {achievement.description}
-                </p>
-                <div className="text-xs sm:text-sm text-slate-500 font-medium">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-3 h-3 text-emerald-600 mr-2 flex-shrink-0" />
-                    {achievement.authority}
-                  </div>
-                </div>
+          {/* Filmy w dwóch kolumnach */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Facebook Video */}
+            <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-4 sm:p-6">
+              <div className="w-full max-w-[360px] h-[660px] overflow-hidden rounded-lg shadow-lg border border-blue-200">
+                <iframe
+                  src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1425839114736709&show_text=false&width=267&t=0"
+                  className="w-full h-full rounded-lg"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                />
               </div>
-            ))}
+              <div className="mt-4 text-center">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1">
+                  Zadowolenie naszych klientów jest dla nas najważniejsze!
+                </h3>
+                <p className="text-sm text-slate-500">
+                  Dostarczamy najwyższej jakości usługi, które spełniają
+                  oczekiwania nawet najbardziej wymagających klientów. Dbamy o
+                  każdy detal i indywidualne podejście, dzięki czemu zyskujemy
+                  zaufanie i satysfakcję naszych klientów. Pani Gabriela Muskala
+                  osobiście się o tym przekonała!
+                </p>
+              </div>
+            </div>
+
+            {/* YouTube Video */}
+            <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-4 sm:p-6">
+              <div className="w-full max-w-[640px] aspect-video overflow-hidden rounded-lg shadow-lg border border-red-200">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/R9_QdufLjm4?start=3198"
+                  title="YouTube Live Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1">
+                  Gala Lider Nieruchomości Otodom 2020
+                </h3>
+                <p className="text-sm text-slate-500">
+                  Biuro CKDOM zostało wyróżnione podczas prestiżowej gali Lider
+                  Nieruchomości Otodom 2020 za najlepszy wynik sprzedażowy w
+                  2020 roku. To dowód uznania dla naszego zaangażowania,
+                  skuteczności i zaufania, jakim obdarzyli nas klienci.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-12 sm:mt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 rounded-2xl p-6 sm:p-8 text-center text-white">
+          {/* Statystyki i podsumowanie */}
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 sm:p-8 text-center text-white">
             <div className="max-w-3xl mx-auto">
               <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
                 Doświadczenie i certyfikaty na które możesz liczyć
@@ -674,7 +644,7 @@ export default function RealEstateWebsite() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">8+</div>
-                  <div className="text-sm text-blue-100">lat doświadczenia</div>
+                  <div className="text-sm text-blue-100">lat licencji</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">6</div>
@@ -686,7 +656,7 @@ export default function RealEstateWebsite() {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                   <div className="text-2xl font-bold">100%</div>
-                  <div className="text-sm text-blue-100">skuteczności</div>
+                  <div className="text-sm text-blue-100">legalności</div>
                 </div>
               </div>
             </div>
