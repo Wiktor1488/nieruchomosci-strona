@@ -69,7 +69,7 @@ export default function RealEstateWebsite() {
         "Negocjacje w Twoim imieniu",
         "Pomoc z kredytem hipotecznym",
       ],
-      highlight: "Oszczędność: Średnio 15-20k zł na negocjacjach",
+      highlight: "Oszczędność: Średnio 15-20 tysięcy zł na negocjacjach",
     },
     {
       title: "Wynajem i Zarządzanie",
