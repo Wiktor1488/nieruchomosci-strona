@@ -111,50 +111,49 @@ export default function RealEstateWebsite() {
     {
       title: "Licencja Pośrednika Nieruchomości",
       description: "PFRN nr 26546 - oficjalnie licencjonowany pośrednik",
-      image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+      image: "licencja.jpg",
       year: "2021",
       authority: "Polska Federacja Rynku Nieruchomości",
     },
     {
-      title: "Tu cos mozna wstawic",
-      description: "Ale nie wiem co",
-      image:
-        "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=300&fit=crop",
-      year: "2023",
-      authority: "Portal Nieruchomości.pl",
+      title: "Lider Nieruchomości Otodom 2020",
+      description:
+        "Wyróżnienie za najlepsze wyniki sprzedaży nieruchomości w województwie świętokrzyskim",
+      image: "top.jpg",
+      year: "2020",
+      authority: "Otodom.pl",
+    },
+    {
+      title: "Współpraca z mBank",
+      description:
+        "Partner w zakresie pośrednictwa kredytowego oferujący dostęp do konsultacji eksperta i mobilne spotkania w dogodnym czasie i miejscu",
+      image: "bank.jpg",
+      year: "2024",
+      authority: "mBank.pl",
+    },
+    {
+      title: "Certyfkat Partnera Gratka",
+      description:
+        "Prestiżowe wyróżnienie za zaangażowanie, skuteczność sprzedażową oraz utrzymywanie wysokich standardów w obsłudze klientów na rynku nieruchomości.",
+      image: "gratka2024.jpg",
+      year: "2024",
+      authority: "Gratka.pl",
+    },
+    {
+      title: "Certyfikat Partnera Morizon",
+      description:
+        "Wyróżnienie przyznane za profesjonalizm, skuteczność oraz najwyższe standardy obsługi klienta w zakresie pośrednictwa w obrocie nieruchomościami. Certyfikat potwierdza naszą silną pozycję na rynku oraz dbałość o transparentność i jakość świadczonych usług.",
+      image: "morizon2024.jpg",
+      year: "2024",
+      authority: "Morizon.pl",
     },
     {
       title: "Lider Jakości PRO",
       description:
-        "Odznaka Lider Jakości PRO to wyróżnienie przyznawane tym biurom, których jakość ogłoszeń jest na najwyższym poziomie.",
+        "Wyróżnienie za uczciwe, rzetelne i transparentne prowadzenie transakcji na rynku nieruchomości",
       image: "lider-jakosci.jpg",
       year: "2024",
       authority: "Otodom.pl",
-    },
-    {
-      title: "Tu cos mozna wstawic",
-      description: "Ale nie wiem co",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
-      year: "2022",
-      authority: "RynekPierwotny.pl",
-    },
-    {
-      title: "Tu cos mozna wstawic",
-      description: "Ale nie wiem co",
-      image:
-        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
-      year: "2021",
-      authority: "Stowarzyszenie Zarządców Nieruchomości",
-    },
-    {
-      title: "Tu cos mozna wstawic",
-      description: "Ale nie wiem co",
-      image:
-        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop",
-      year: "2021",
-      authority: "Izba Gospodarcza Kielce",
     },
   ];
 
@@ -633,13 +632,13 @@ export default function RealEstateWebsite() {
                 className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 group"
               >
                 <div className="relative mb-4 sm:mb-6">
-                  <div className="aspect-[4/3] bg-white rounded-lg overflow-hidden shadow-md">
+                  <div className="aspect-[4/3] bg-white/0 rounded-lg overflow-hidden shadow-md">
                     <Image
                       src={achievement.image}
                       alt={achievement.title}
                       width={300}
                       height={225}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
